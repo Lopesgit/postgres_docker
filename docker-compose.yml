@@ -11,8 +11,19 @@ services:
     ports:
       - 5432:5432
     networks:
-      - backend
+      - postgres-network
+  # pgadmin:
+  #   image: dpage/pgadmin4
+  #   restart: always
+  #   env_file:
+  #     - .env
+  #   ports:
+  #     - 15432:80
+  #   volumes:
+  #     - ./pgadmin_storage:/var/lib/pgadmin/storage
+  #   networks:
+  #     - postgres-network
 
 networks:
-  backend:
-    name: backend
+  postgres-network:
+    name: postgres-network
